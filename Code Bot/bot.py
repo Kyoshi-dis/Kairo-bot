@@ -257,7 +257,7 @@ async def on_ready():
     stream_url = "https://www.twitch.tv/discord" 
     
     # Thiết lập trạng thái hoạt động của bot
-    activity = discord.Streaming(name="Đang stream /help | k.help", url=stream_url)
+    activity = discord.Streaming(name="/help | k.help", url=stream_url)
     
     # Cập nhật trạng thái cho bot
     await bot.change_presence(activity=activity)
