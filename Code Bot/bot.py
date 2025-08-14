@@ -243,6 +243,27 @@ async def clear(ctx, amount: int = 10):
     deleted = await ctx.channel.purge(limit=amount+1)
     await ctx.send(f"🧹 Đã xóa {len(deleted)-1} tin nhắn.", delete_after=5)
 
+# ===Trạng thái bot===
+@bot.event
+async def on_ready():
+    """
+    Sự kiện này sẽ chạy khi bot kết nối thành công.
+    """
+    print(f'Đã đăng nhập với tư cách {bot.user}')
+
+    # Đặt trạng thái bot là "Đang stream"
+    # Thay 'URL_STREAM_CỦA_BẠN' bằng một đường link stream bất kỳ, ví dụ Twitch, YouTube...
+    # Nếu bạn không có, có thể dùng một URL giả như "https://www.twitch.tv/discord"
+    stream_url = "https://www.twitch.tv/discord" 
+    
+    # Thiết lập trạng thái hoạt động của bot
+    activity = discord.Streaming(name="Đang stream /help | k.help", url=stream_url)
+    
+    # Cập nhật trạng thái cho bot
+    await bot.change_presence(activity=activity)
+    
+    print("Trạng thái bot đã được cập nhật thành 'Đang stream'")
+
 # === Khởi động server giữ bot chạy ===
 keep_alive()
 
