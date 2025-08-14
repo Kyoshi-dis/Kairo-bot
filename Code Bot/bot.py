@@ -21,7 +21,7 @@ intents.presences = True
 bot = commands.Bot(command_prefix="k.", intents=intents, help_command=None)
 
 spam_running = False
-
+# === Owo Auto Farm ===
 @bot.command(name="run")
 async def run_spam(ctx):
     global spam_running
